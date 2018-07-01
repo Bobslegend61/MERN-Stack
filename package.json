@@ -4,8 +4,12 @@
   "description": "Follow up MEARN Stack tutorial from Brad Traversy",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix",
     "server": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
